@@ -1,6 +1,6 @@
 {
   "secretKey": "THISISMYSECURETOKEN",
-  "host": "0.0.0.0",
+  "host": "https://wppconnect-production.up.railway.app",
   "port": "$PORT",
   "deviceName": "WppConnect",
   "poweredBy": "WPPConnect-Server",
