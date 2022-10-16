@@ -1,7 +1,7 @@
 {
   "secretKey": "THISISMYSECURETOKEN",
-  "host": "http://localhost",
-  "port": "21465",
+  "host": "0.0.0.0",
+  "port": "$PORT",
   "deviceName": "WppConnect",
   "poweredBy": "WPPConnect-Server",
   "startAllSession": true,
