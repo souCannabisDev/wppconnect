@@ -15,6 +15,7 @@
  */
 
 require('dotenv').config();
+var axios = require("axios")
 
 import { createLogger } from './util/logger';
 import { createFolders, setMaxListners, startAllSessions } from './util/functions';
