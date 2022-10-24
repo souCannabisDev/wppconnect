@@ -293,7 +293,7 @@ export async function getQrCode(req, res) {
 
     res.writeHead(200, {
       'Content-Type': 'image/png',
-      'Content-Length': 150,
+      'Content-Length': img.length,
     });
     res.end(img);
   } catch (ex) {
