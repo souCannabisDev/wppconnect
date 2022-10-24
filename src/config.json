@@ -1,6 +1,6 @@
 {
   "secretKey": "THISISMYSECURETOKEN",
-  "host": "https://wppconnect-production.up.railway.app",
+  "host": "https://whatsappapi.soucannabis.ong.br",
   "port": "$PORT",
   "deviceName": "WppConnect",
   "poweredBy": "WPPConnect-Server",
@@ -66,8 +66,8 @@
     "mongoIsRemote": true,
     "mongoURLRemote": "",
     "mongodbPort": 27017,
-    "redisHost": "localhost",
-    "redisPort": 6379,
+    "redisHost": "https://whatsappapi.soucannabis.ong.br/",
+    "redisPort": "$PORT",
     "redisPassword": "",
     "redisDb": 0,
     "redisPrefix": "docker"
