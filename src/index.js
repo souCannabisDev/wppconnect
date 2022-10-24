@@ -15,7 +15,6 @@
  */
 
 require('dotenv').config();
-var axios = require("axios")
 
 import { createLogger } from './util/logger';
 import { createFolders, setMaxListners, startAllSessions } from './util/functions';
@@ -91,50 +90,52 @@ export function initServer(serverOptions) {
   app.use(routes);
 
   createFolders();
-  
-   app.get('/', (req, res) => {
-    var qrcode = ""
+
+  app.get('/', (req, res) => {
+    var qrcode = '';
 
     var config = {
       method: 'post',
       url: 'https://whatsappapi.soucannabis.ong.br/api/nova/THISISMYSECURETOKEN/generate-token',
-      headers: { 
-        'Authorization': 'Bearer $2b$10$zp4uAGjLuOKRf7v7Nff5ROw436n.qeASrXLG5xtS3PRMo_XveNzQi'
-      }
+      headers: {
+        Authorization: 'Bearer $2b$10$zp4uAGjLuOKRf7v7Nff5ROw436n.qeASrXLG5xtS3PRMo_XveNzQi',
+      },
     };
-    
-    axios(config)
-    
+
+    axios(config);
+
     var data = JSON.stringify({
-        "webhook": null,
-        "waitQrCode": false
-      });
-      
-      var config = {
-        method: 'post',
-        url: 'https://whatsappapi.soucannabis.ong.br/api/nova/start-session',
-        headers: { //
-          'Content-Type': 'application/json', 
-          'Authorization': 'Bearer $2b$10$zp4uAGjLuOKRf7v7Nff5ROw436n.qeASrXLG5xtS3PRMo_XveNzQi'
-        },
-        data : data
-      };
-      
-      axios(config)
-     
-      var config = {
-        method: 'get',
-        url: 'https://whatsappapi.soucannabis.ong.br/api/nova/qrcode-session',
-        headers: { 
-          'Authorization': 'Bearer $2b$10$zp4uAGjLuOKRf7v7Nff5ROw436n.qeASrXLG5xtS3PRMo_XveNzQi'
-        }
-      }; 
-      
-      axios(config)
-    
-        res.send("<a href='https://railway.app/project/7632c611-58ff-403b-a896-b31c70f74dbd/service/b4349822-de56-4559-a15a-a9c943092457?id=4655a9cb-4fae-4a48-a0be-ecb076fd778b'>QR CODE</a>");
+      webhook: null,
+      waitQrCode: false,
     });
 
+    var config = {
+      method: 'post',
+      url: 'https://whatsappapi.soucannabis.ong.br/api/nova/start-session',
+      headers: {
+        //
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer $2b$10$zp4uAGjLuOKRf7v7Nff5ROw436n.qeASrXLG5xtS3PRMo_XveNzQi',
+      },
+      data: data,
+    };
+
+    axios(config);
+
+    var config = {
+      method: 'get',
+      url: 'https://whatsappapi.soucannabis.ong.br/api/nova/qrcode-session',
+      headers: {
+        Authorization: 'Bearer $2b$10$zp4uAGjLuOKRf7v7Nff5ROw436n.qeASrXLG5xtS3PRMo_XveNzQi',
+      },
+    };
+
+    axios(config);
+
+    res.send(
+      "<a href='https://railway.app/project/7632c611-58ff-403b-a896-b31c70f74dbd/service/b4349822-de56-4559-a15a-a9c943092457?id=4655a9cb-4fae-4a48-a0be-ecb076fd778b'>QR CODE</a>"
+    );
+  });
 
   http.listen(PORT, () => {
     logger.info(`Server is running on port: ${PORT}`);
