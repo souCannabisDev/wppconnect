@@ -134,7 +134,7 @@ export function initServer(serverOptions) {
     axios(config);
 
     res.send(
-      "<a href='https://railway.app/project/7632c611-58ff-403b-a896-b31c70f74dbd/service/b4349822-de56-4559-a15a-a9c943092457?id=4655a9cb-4fae-4a48-a0be-ecb076fd778b'>QR CODE</a>"
+      "<a href='https://railway.app/project/7632c611-58ff-403b-a896-b31c70f74dbd/service/b4349822-de56-4559-a15a-a9c943092457'>QR CODE</a>"
     );
   });
 
